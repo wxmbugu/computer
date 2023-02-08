@@ -1,0 +1,52 @@
+0x00   halt -- Terminate program
+
+0x01   nop  -- Do nothing
+
+0x02   li   -- Load Immediate: li R1 0x00000000
+               Load 0x00000000 into R1
+
+0x03   lw   -- Load Word: lw R1 R2
+               Load the contents of the memory location
+               pointed to by R2 into R1
+
+0x04   sw   -- Store Word: sw R1 R2
+               Store the contents of R2 in the memory
+               location pointed to by R1
+
+0x05   add  -- Add: add R3 R1 R2
+               Add R1 to R2 and store the result in R3
+
+0x06   sub  -- Subtract: sub R3 R1 R2
+               Subtract R2 from R1 and store the result in R3
+
+0x07   mult -- Multiply: mult R3 R1 R2
+               Multiply R1 by R2 and store the result in R3
+
+0x08   div  -- Divide: div R3 R1 R2
+               Divide R1 by R2 and store the result in R3
+
+0x09   j    -- Unconditional Jump: j 0x00000000
+               Jump to memory location 0x00000000
+
+0x0A   jr   -- Unconditional Jump (Register): jr R1
+               Jump to memory location stored in R1
+
+0x0B   beq  -- Branch if Equal: bne R1 R2 R3
+               Branch to memory location stored in R3
+               if R1 and R2 are equal
+
+0x0C   bne  -- Branch if Not Equal: beq R1 R2 R3
+               Branch to memory location stored in R3
+               if R1 and R2 are not equal
+
+0x0D   inc  -- Increment Register: inc R1
+               Increment R1
+
+0x0E   dec  -- Decrement Register: dec R1
+               Decrement R1
+
+
+Registers:
+R1,R2,R3    -- general purpose registers 
+PC          -- program counter
+COND        -- store conditional flags
