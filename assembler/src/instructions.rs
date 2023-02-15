@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-use std::{fmt::Display, str::FromStr};
+use std::{collections::HashMap, fmt::Display, str::FromStr};
 
 #[derive(Debug)]
 pub enum Instructions {
@@ -46,23 +46,28 @@ pub enum Instructions {
 
 impl Instructions {
     /// matches an instruction to  an opcode
+
+    pub fn new() -> Option<Self> {
+        None
+    }
+
     pub fn match_instruction_opcode(self) -> u32 {
         match self {
-            Self::HALT => 0x00,
-            Self::NOP => 0x01,
-            Self::LI => 0x02,
-            Self::LW => 0x03,
-            Self::SW => 0x04,
-            Self::ADD => 0x05,
-            Self::SUB => 0x06,
-            Self::MULT => 0x07,
-            Self::DIV => 0x08,
-            Self::J => 0x09,
-            Self::JR => 0x0A,
-            Self::BEQ => 0x0B,
-            Self::BNE => 0x0C,
-            Self::INC => 0x0D,
-            Self::DEC => 0x0E,
+            Self::HALT => 0b00_0000,
+            Self::NOP => 0b00_0001,
+            Self::LI => 0b00_0010,
+            Self::LW => 0b00_0011,
+            Self::SW => 0b00_0100,
+            Self::ADD => 0b00_0101,
+            Self::SUB => 0b00_0110,
+            Self::MULT => 0b00_0111,
+            Self::DIV => 0b00_1000,
+            Self::J => 0b00_1001,
+            Self::JR => 0b00_1010,
+            Self::BEQ => 0b00_1011,
+            Self::BNE => 0b00_1100,
+            Self::INC => 0b00_1101,
+            Self::DEC => 0b00_1100,
             Self::R1 => 0x01,
             Self::R2 => 0x02,
             Self::R3 => 0x03,
@@ -107,9 +112,9 @@ impl FromStr for Instructions {
     }
 }
 
-impl From<&str> for Instructions {
-    fn from(value: &str) -> Self {
-        match value {
+impl From<String> for Instructions {
+    fn from(value: String) -> Self {
+        match value.as_ref() {
             "halt" => Instructions::HALT,
             "nop" => Instructions::NOP,
             "li" => Instructions::LI,
@@ -132,5 +137,17 @@ impl From<&str> for Instructions {
             "cond" => Instructions::COND,
             _ => todo!(),
         }
+    }
+}
+
+#[derive(Debug)]
+struct LabelTable {
+    table: HashMap<String, String>,
+}
+
+impl LabelTable {
+    fn new() -> Self {
+        let table = HashMap::new();
+        Self { table }
     }
 }

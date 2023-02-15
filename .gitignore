@@ -1,3 +1,6 @@
 /assembler/target
 /assembler/test.bin
 /assembler/out.bin
+simulator/
+main
+assembler/test.txt

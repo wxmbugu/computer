@@ -8,3 +8,10 @@ edition = "2021"
 [dependencies]
 clap = { version = "4.1.4", features = ["derive"] }
 bytes = "1"
+anyhow = "1.0.69"
+[[bin]]
+name = "assembler"
+path = "src/bin/assembler/main.rs"
+[[bin]]
+name = "computer"
+path = "src/bin/computer/main.rs"
