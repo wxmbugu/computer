@@ -132,7 +132,6 @@ fn transform_instruction_to_opcode(data: &[String], len: u16) -> Vec<u32> {
                         .match_instruction_opcode())
                         & 0x0f;
             }
-            println!("{d:032b},{:032b}", 53620);
             opcodes.push(d);
         }
         3 => {
