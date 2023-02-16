@@ -3,4 +3,5 @@
 /assembler/out.bin
 simulator/
 main
+LabelTable.json
 assembler/test.txt
