@@ -11,5 +11,7 @@ loop:
   inc R1
   ; loop if the counter hasn't yet reached the end
   bne R1 R2 R3
+  ; jr R3
+  ; j 0x0000D005
   ; end program
   halt

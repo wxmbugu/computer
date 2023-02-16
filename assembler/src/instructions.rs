@@ -2,7 +2,7 @@
 
 use std::{collections::HashMap, fmt::Display, str::FromStr};
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Instructions {
     /// Do nothing
     NOP,
@@ -141,12 +141,21 @@ impl From<String> for Instructions {
 }
 
 #[derive(Debug)]
-struct LabelTable {
-    table: HashMap<String, String>,
+pub struct LabelTable {
+    pub table: HashMap<u32, u32>,
 }
 
 impl LabelTable {
-    fn new() -> Self {
+    pub fn get(self, value: u32) -> u32 {
+        self.table.get(&value).expect("address").to_owned()
+    }
+    pub fn insert(&mut self, key: u32, value: u32) {
+        self.table.insert(key, value);
+    }
+}
+
+impl Default for LabelTable {
+    fn default() -> Self {
         let table = HashMap::new();
         Self { table }
     }
