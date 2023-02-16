@@ -9,12 +9,14 @@
 
 #### RUN ASSEMBLER
 ```
-cargo run --bin assembler --  -i assembly-file -o output-file     
+$ cd assembler
+$ cargo run --bin assembler --  -i assembly-file -o output-file     
 ```
 
 #### RUN SIMULATOR
 ```
-cargo run --bin computer  
+$ cd assembler
+$ cargo run --bin computer  
 ```
 
 
