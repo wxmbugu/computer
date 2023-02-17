@@ -20,3 +20,7 @@ $ cargo run --bin computer -- -i test.bin
 ```
 
 
+#### Acknowledgements
+ - https://fmash16.github.io/content/posts/riscv-emulator-in-c.html
+ - https://book.rvemu.app/index.html 
+
