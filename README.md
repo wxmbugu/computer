@@ -10,13 +10,13 @@
 #### RUN ASSEMBLER
 ```
 $ cd assembler
-$ cargo run --bin assembler --  -i <assembly-file> -o <binary-file>     
+$ cargo run --bin assembler --  -i <test.s> -o <test.txt/test.bin>         
 ```
 
 #### RUN SIMULATOR
 ```
 $ cd assembler
-$ cargo run --bin computer -- -i <binary-file>       
+$ cargo run --bin computer -- -i <test.txt/test.bin>       
 ```
 
 
