@@ -1,9 +1,4 @@
-#![allow(unused_variables)]
-#![allow(unused_assignments)]
-use std::{
-    fs::{self, File},
-    io::{BufReader, Read},
-};
+use std::{fs::File, io::Read};
 
 use assembler::{Cpu, RAM_BASE};
 use clap::{Arg, Command};
@@ -22,8 +17,7 @@ fn main() {
         .get_matches();
     let input = cmd.get_one::<String>("input").unwrap();
     let mut bin_file = File::open(input).expect("No file found");
-    let reader_bin = BufReader::new(&bin_file);
-    let metadata = fs::metadata("test.txt").expect("unable to read metadata");
+    let metadata = bin_file.metadata().expect("can't read file");
     let mut buffer = vec![0; metadata.len() as usize];
     bin_file.read_exact(&mut buffer).expect("buffer overflow");
     let mut address: Vec<u64> = vec![];
