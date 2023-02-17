@@ -9,7 +9,7 @@ use assembler::{Cpu, RAM_BASE};
 use clap::{Arg, Command};
 
 fn main() {
-    let cmd = Command::new("assembler")
+    let cmd = Command::new("simulator")
         .author("Wxmbugu (https://github.com/wxmbugu)")
         .about("Execute a program")
         .version("0.0.1")
