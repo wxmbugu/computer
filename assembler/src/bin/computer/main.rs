@@ -6,9 +6,22 @@ use std::{
 };
 
 use assembler::{Cpu, RAM_BASE};
+use clap::{Arg, Command};
 
 fn main() {
-    let mut bin_file = File::open("test.txt").expect("No file found");
+    let cmd = Command::new("assembler")
+        .author("Wxmbugu (https://github.com/wxmbugu)")
+        .about("Generate a bin file to pesapal isa")
+        .version("0.0.1")
+        .arg(
+            Arg::new("input")
+                .help("input assembly filename")
+                .short('i')
+                .long("input"),
+        )
+        .get_matches();
+    let input = cmd.get_one::<String>("input").unwrap();
+    let mut bin_file = File::open(input).expect("No file found");
     let reader_bin = BufReader::new(&bin_file);
     let metadata = fs::metadata("test.txt").expect("unable to read metadata");
     let mut buffer = vec![0; metadata.len() as usize];
