@@ -11,11 +11,11 @@ use clap::{Arg, Command};
 fn main() {
     let cmd = Command::new("assembler")
         .author("Wxmbugu (https://github.com/wxmbugu)")
-        .about("Generate a bin file to pesapal isa")
+        .about("Execute a program")
         .version("0.0.1")
         .arg(
             Arg::new("input")
-                .help("input assembly filename")
+                .help("input binary")
                 .short('i')
                 .long("input"),
         )
